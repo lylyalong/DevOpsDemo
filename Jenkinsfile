@@ -1,6 +1,8 @@
 pipeline {
   agent any
-
+   environment {
+    appid = 'DevOpsDemo'
+    }
   stages {
 
     stage ('Checkout') {
@@ -13,17 +15,20 @@ pipeline {
 
     stage ('Build') {
       steps {
-        echo 'Start build the package'
+        echo 'Start build the package ${appid}'
         echo 'Finish build the package'
       }
     }
 
-    stage ('Deploy') {
-      steps {
-        echo 'Start deploy the package'
-        echo 'Finish deploy the package'
-      }
+    when {
+        stage ('Deploy') {
+              steps {
+                echo 'Start deploy the package'
+                echo 'Finish deploy the package'
+              }
+            }
     }
+
     
   }
 
