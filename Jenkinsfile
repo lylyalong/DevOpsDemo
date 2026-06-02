@@ -20,14 +20,13 @@ pipeline {
       }
     }
 
-    when {
-        stage ('Deploy') {
-              steps {
-                echo 'Start deploy the package'
-                echo 'Finish deploy the package'
-              }
-            }
-    }
+    stage ('Deploy') {
+          steps {
+            echo 'Start deploy the package'
+            echo 'Finish deploy the package'
+          }
+        }
+
 
     
   }
